@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "motion/react";
 import {
   Mail,
   MapPin,
@@ -50,7 +51,18 @@ export default function Home() {
     <div className="min-h-dvh flex flex-col bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
       {/* Dynamic Ambient Background Glows */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-emerald-500/15 via-teal-500/10 to-blue-600/5 blur-[160px] rounded-full" />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.12, 0.18, 0.12],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-emerald-500 via-teal-500 to-blue-600 blur-[160px] rounded-full"
+        />
         <div className="absolute top-1/2 -right-40 w-[600px] h-[500px] bg-emerald-600/10 blur-[150px] rounded-full" />
       </div>
 
@@ -58,7 +70,11 @@ export default function Home() {
       <header className="sticky top-0 z-50 glass-panel border-b border-zinc-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-3 group focus:outline-none">
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-emerald-500/40 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <motion.div
+              whileHover={{ scale: 1.08, rotate: 2 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative w-10 h-10 rounded-xl overflow-hidden border border-emerald-500/40 shadow-lg shadow-emerald-500/20"
+            >
               <Image
                 src="/profile.jpg"
                 alt="Babatunde Afolabi"
@@ -66,7 +82,7 @@ export default function Home() {
                 className="object-cover object-top"
                 priority
               />
-            </div>
+            </motion.div>
             <div>
               <span className="font-bold text-zinc-100 text-base tracking-tight block group-hover:text-emerald-400 transition-colors">
                 Babatunde Afolabi
@@ -173,14 +189,19 @@ export default function Home() {
       </header>
 
       <main className="flex-1 relative z-10">
-        {/* HERO SECTION - Bold Startup Style with Profile Photo */}
+        {/* HERO SECTION - Bold Startup Style with Animated Profile Photo */}
         <section
           id="hero"
           className="pt-12 sm:pt-20 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1"
+            >
               {/* Status pill */}
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-400 text-xs font-mono">
                 <span className="relative flex h-2 w-2">
@@ -235,28 +256,48 @@ export default function Home() {
                   GitHub Profile
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Profile Photo & Highlights Column */}
-            <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center">
+            {/* Right Profile Photo Column with Smooth Animations */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 order-1 lg:order-2 flex justify-center"
+            >
               <div className="relative w-full max-w-md">
-                {/* Decorative Photo Frame Glow */}
-                <div className="absolute -inset-1.5 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 rounded-3xl blur-lg opacity-30 animate-pulse" />
+                {/* Pulsing Animated Halo Aura */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -inset-2 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 rounded-3xl blur-xl"
+                />
 
-                <div className="relative glass-card rounded-3xl p-4 sm:p-5 border border-zinc-700/80 bg-zinc-900/90 shadow-2xl">
-                  {/* Photo Container */}
-                  <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-zinc-700/60 shadow-inner">
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="relative glass-card rounded-3xl p-4 sm:p-5 border border-zinc-700/80 bg-zinc-900/90 shadow-2xl"
+                >
+                  {/* Photo Container with Hover Scale */}
+                  <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-zinc-700/60 shadow-inner group">
                     <Image
                       src="/profile.jpg"
                       alt="Babatunde (Julius) Afolabi - Process Technician"
                       fill
-                      className="object-cover object-center scale-[1.02] hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-center scale-[1.02] group-hover:scale-110 transition-transform duration-700 ease-out"
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
 
-                    {/* Image Overlay Pill */}
-                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-zinc-800 flex items-center justify-between">
+                    {/* Image Overlay Badge */}
+                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-zinc-950/85 backdrop-blur-md border border-zinc-800/90 flex items-center justify-between shadow-lg">
                       <div>
                         <span className="font-bold text-zinc-100 text-sm block">
                           Babatunde Afolabi
@@ -286,9 +327,9 @@ export default function Home() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -305,7 +346,10 @@ export default function Home() {
             </div>
 
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="glass-card rounded-2xl p-6 space-y-3">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-2xl p-6 space-y-3"
+              >
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <Cpu className="w-5 h-5" />
                 </div>
@@ -315,9 +359,12 @@ export default function Home() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Deep hands-on experience operating medical device machinery. Expert in finding the exact space between written procedure standards and physical floor parameters.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="glass-card rounded-2xl p-6 space-y-3">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-2xl p-6 space-y-3"
+              >
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <TrendingUp className="w-5 h-5" />
                 </div>
@@ -327,9 +374,12 @@ export default function Home() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Pursuing advanced supply chain studies at the University of Limerick, applying AI optimization and predictive analytics to build resilient MedTech logistics.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="glass-card rounded-2xl p-6 space-y-3">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-2xl p-6 space-y-3"
+              >
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
@@ -339,7 +389,7 @@ export default function Home() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Committed to continuous operation, rigorous compliance with medical quality standards, and rapid equipment troubleshooting to sustain seamless output.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -574,7 +624,10 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="glass-card rounded-2xl p-8 border border-zinc-800 space-y-4">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-2xl p-8 border border-zinc-800 space-y-4"
+              >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                     SUPPLY CHAIN &amp; AI
@@ -587,9 +640,12 @@ export default function Home() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Research into combining machine learning models with supply chain operational frameworks to predict material bottlenecks, optimize inventory holding costs, and enhance responsiveness in medical device delivery.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="glass-card rounded-2xl p-8 border border-zinc-800 space-y-4">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-2xl p-8 border border-zinc-800 space-y-4"
+              >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                     GMP MANUFACTURING
@@ -602,7 +658,7 @@ export default function Home() {
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Troubleshooting physical machine parameters against formal documentation. Finding practical parameter adjustments to ensure compliance while minimizing production outages and defect rates.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
