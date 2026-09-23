@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import {
-  Mail,
   MapPin,
   Briefcase,
   GraduationCap,
@@ -16,9 +15,7 @@ import {
   ChevronRight,
   Menu,
   X,
-  Activity,
   Layers,
-  Sparkles,
 } from "lucide-react";
 
 function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -49,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="min-h-dvh flex flex-col bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
-      {/* Dynamic Ambient Background Glows */}
+      {/* Ambient Lighting */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <motion.div
           animate={{
@@ -88,12 +85,12 @@ export default function Home() {
                 Babatunde Afolabi
               </span>
               <span className="text-xs text-zinc-400 block font-mono">
-                Process Tech • Limerick
+                Process Technician • Limerick, Ireland
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
             <a href="#about" className="hover:text-emerald-400 transition-colors">
               About
@@ -135,7 +132,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Mobile Dropdown Nav */}
+        {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-xl px-4 pt-4 pb-6 space-y-3">
             <a
@@ -189,7 +186,7 @@ export default function Home() {
       </header>
 
       <main className="flex-1 relative z-10">
-        {/* HERO SECTION - Bold Startup Style with Animated Profile Photo */}
+        {/* HERO SECTION */}
         <section
           id="hero"
           className="pt-12 sm:pt-20 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -202,27 +199,27 @@ export default function Home() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1"
             >
-              {/* Status pill */}
+              {/* Availability Badge */}
               <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30 text-emerald-400 text-xs font-mono">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                OPEN TO WORK • LIMERICK, IRELAND
+                AVAILABLE FOR OPPORTUNITIES • LIMERICK, IRELAND
               </div>
 
-              {/* Startup-Bold Headline */}
+              {/* Main Professional Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-zinc-100 tracking-tight leading-[1.08]">
-                Bridging GMP Precision with{" "}
+                Bridging Good Manufacturing Practice Precision with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500">
-                  AI-Driven Supply Chain
+                  Artificial Intelligence Driven Supply Chain
                 </span>{" "}
                 Resilience.
               </h1>
 
-              {/* Subtext */}
+              {/* Subtitle */}
               <p className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
-                Process Technician in medical device manufacturing &amp; MSc Supply Chain Candidate at the University of Limerick. Optimizing production workflows, ensuring strict GMP compliance, and deploying predictive analytics for MedTech.
+                Process Technician in medical device manufacturing and Master of Science in Supply Chain Management Candidate at the University of Limerick. Optimizing production workflows, ensuring strict Good Manufacturing Practice compliance, and deploying predictive analytics for medical technology.
               </p>
 
               {/* Action Buttons */}
@@ -258,7 +255,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right Profile Photo Column with Smooth Animations */}
+            {/* Right Profile Photo Column with Animations */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -266,7 +263,7 @@ export default function Home() {
               className="lg:col-span-5 order-1 lg:order-2 flex justify-center"
             >
               <div className="relative w-full max-w-md">
-                {/* Pulsing Animated Halo Aura */}
+                {/* Pulsing Animated Aura */}
                 <motion.div
                   animate={{
                     scale: [1, 1.05, 1],
@@ -285,7 +282,7 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="relative glass-card rounded-3xl p-4 sm:p-5 border border-zinc-700/80 bg-zinc-900/90 shadow-2xl"
                 >
-                  {/* Photo Container with Hover Scale */}
+                  {/* Photo Container */}
                   <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-zinc-700/60 shadow-inner group">
                     <Image
                       src="/profile.jpg"
@@ -312,18 +309,18 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* High Impact Badges Below Photo */}
+                  {/* Badges Below Photo */}
                   <div className="mt-4 grid grid-cols-2 gap-2 text-xs font-mono">
                     <div className="p-2.5 rounded-xl bg-zinc-950/70 border border-zinc-800 text-center">
                       <span className="text-zinc-400 block text-[10px]">FACILITY ROLE</span>
                       <span className="text-emerald-400 font-semibold block mt-0.5 truncate">
-                        Process Tech
+                        Process Technician
                       </span>
                     </div>
                     <div className="p-2.5 rounded-xl bg-zinc-950/70 border border-zinc-800 text-center">
                       <span className="text-zinc-400 block text-[10px]">UNIVERSITY</span>
                       <span className="text-zinc-200 font-semibold block mt-0.5 truncate">
-                        Univ of Limerick
+                        University of Limerick
                       </span>
                     </div>
                   </div>
@@ -354,7 +351,7 @@ export default function Home() {
                   <Cpu className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-zinc-100">
-                  Process Technician Realities
+                  Process Technician Excellence
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Deep hands-on experience operating medical device machinery. Expert in finding the exact space between written procedure standards and physical floor parameters.
@@ -369,10 +366,10 @@ export default function Home() {
                   <TrendingUp className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-zinc-100">
-                  MSc Supply Chain Focus
+                  Master of Science Supply Chain Focus
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  Pursuing advanced supply chain studies at the University of Limerick, applying AI optimization and predictive analytics to build resilient MedTech logistics.
+                  Pursuing advanced supply chain studies at the University of Limerick, applying artificial intelligence optimization and predictive analytics to build resilient medical technology logistics.
                 </p>
               </motion.div>
 
@@ -384,7 +381,7 @@ export default function Home() {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-zinc-100">
-                  Strict GMP &amp; Quality Rigor
+                  Strict Compliance &amp; Quality Rigor
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Committed to continuous operation, rigorous compliance with medical quality standards, and rapid equipment troubleshooting to sustain seamless output.
@@ -435,7 +432,7 @@ export default function Home() {
                       <li className="flex items-start gap-2.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
                         <span>
-                          Ensuring strict compliance with Good Manufacturing Practice (GMP) protocols and medical quality standard operating procedures.
+                          Ensuring strict compliance with Good Manufacturing Practice protocols and medical quality standard operating procedures.
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
@@ -469,7 +466,7 @@ export default function Home() {
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-zinc-100">
-                            MSc in Supply Chain Management
+                            Master of Science in Supply Chain Management
                           </h3>
                           <p className="text-sm text-emerald-400 font-semibold">
                             University of Limerick
@@ -482,7 +479,7 @@ export default function Home() {
                     </div>
 
                     <p className="text-sm text-zinc-400 leading-relaxed">
-                      Focused on AI-Driven Supply Chain Optimization, Predictive Analytics, Inventory Resilience, and Logistics Precision within high-value manufacturing and MedTech operations.
+                      Focused on Artificial Intelligence Driven Supply Chain Optimization, Predictive Analytics, Inventory Resilience, and Logistics Precision within high value manufacturing and medical technology operations.
                     </p>
                   </div>
                 </div>
@@ -540,9 +537,9 @@ export default function Home() {
                 </h3>
                 <div className="flex flex-wrap gap-2 pt-1">
                   {[
-                    "GMP Compliance",
+                    "Good Manufacturing Practice",
                     "Medical Devices Standards",
-                    "SOP Adherence",
+                    "Standard Operating Procedures",
                     "Quality Assurance",
                     "Root Cause Analysis",
                   ].map((skill) => (
@@ -570,7 +567,7 @@ export default function Home() {
                     "Predictive Analytics",
                     "Inventory Management",
                     "Supply Chain Resilience",
-                    "Data-Driven Decisions",
+                    "Data Driven Decisions",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -593,9 +590,9 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2 pt-1">
                   {[
                     "Manufacturing Systems",
-                    "AI Integration",
+                    "Artificial Intelligence Integration",
                     "Process Documentation",
-                    "Cross-Functional Teamwork",
+                    "Cross Functional Teamwork",
                     "Continuous Improvement",
                   ].map((skill) => (
                     <span
@@ -630,12 +627,12 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                    SUPPLY CHAIN &amp; AI
+                    SUPPLY CHAIN &amp; ARTIFICIAL INTELLIGENCE
                   </span>
                   <ArrowUpRight className="w-5 h-5 text-zinc-500" />
                 </div>
                 <h3 className="text-xl font-bold text-zinc-100">
-                  AI-Driven MedTech Supply Chain Resilience
+                  Artificial Intelligence Driven Medical Technology Supply Chain Resilience
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Research into combining machine learning models with supply chain operational frameworks to predict material bottlenecks, optimize inventory holding costs, and enhance responsiveness in medical device delivery.
@@ -648,12 +645,12 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                    GMP MANUFACTURING
+                    GOOD MANUFACTURING PRACTICE
                   </span>
                   <ArrowUpRight className="w-5 h-5 text-zinc-500" />
                 </div>
                 <h3 className="text-xl font-bold text-zinc-100">
-                  Floor-Level GMP Equipment Optimization
+                  Floor Level Equipment Optimization
                 </h3>
                 <p className="text-sm text-zinc-400 leading-relaxed">
                   Troubleshooting physical machine parameters against formal documentation. Finding practical parameter adjustments to ensure compliance while minimizing production outages and defect rates.
